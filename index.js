@@ -3,6 +3,7 @@ import cors from "cors";
 import mongoose from "mongoose";
 import { userRouter } from "./routes/Users.js";
 import {btc} from "./routes/btc.js";
+import { createinvoice } from "./routes/generate-invoice.js";
 
 const app = express();
 
@@ -11,6 +12,7 @@ app.use(cors());
 
 app.use("/auth" , userRouter);
 app.use("/btc", btc);
+app.use("/create-invoice", createinvoice);
 
 
 mongoose.connect(
